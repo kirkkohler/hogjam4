@@ -62,7 +62,7 @@ function create() {
 
 	player.body.collideWorldBounds = true;
 
-	//  Our two animations, walking left and right.
+	//  Our two animations, player walking
 	player.animations.add('walking', [0, 1, 2, 3], 10, true);
 
 	// Camera
@@ -87,6 +87,11 @@ function create() {
 		// example of adding property to npc
 		// npc.name = 'npc' + i;
 	}
+
+	// Using the power of callAll we can add the same animation to all npcs in the group
+	npcs.callAll('animations.add', 'animations', 'npcWalking', [0, 1, 2, 3], 10, true);
+	// And play them
+	npcs.callAll('animations.play', 'animations', 'npcWalking');
 
 	//  Our controls.
 	cursors = game.input.keyboard.createCursorKeys();
@@ -140,4 +145,7 @@ function turnNpcToZombie(player, npcs) {
 	// TODO: may want to include turned zombie into sprite sheet and just change frame reference 
 	// instead of loading new texture
 	npcs.loadTexture('turnedZombie', 0);
+	// Update animation to show walking 
+	npcs.animations.add('turnedZombieWalking', [0, 1, 2, 3], 10, true);
+	npcs.animations.play('turnedZombieWalking');
 }
