@@ -1,3 +1,5 @@
+'use strict';
+
 var game = new Phaser.Game(2500, 2500, Phaser.AUTO, '', {
 	preload: preload,
 	create: create,
@@ -16,6 +18,11 @@ var game = new Phaser.Game(2500, 2500, Phaser.AUTO, '', {
  * create vars
  */
 
+// player Properties
+var player;
+var camera;
+var cursors;
+
 // NPC Properties
 //  The non-player-character group contains all the npcs that a player can turn into a zombie
 var npcs;
@@ -31,9 +38,9 @@ var npcSprites = ['tanHuman', 'brownHuman', 'whiteHuman'];
  * preload function
  */
 function preload() {
-	console.info('game: width: ' + game.width + ' height: ' + game.height);
+	window.console.info('game: width: ' + game.width + ' height: ' + game.height);
 
-	console.log('phaser: execute preload phase');
+	window.console.log('phaser: execute preload phase');
 
 	game.load.spritesheet('dude', 'images/zombie-baby.png', 64, 64);
 	game.load.spritesheet('attackingDude', 'images/attacking.png', 64, 64);
@@ -47,7 +54,7 @@ function preload() {
  * create function
  */
 function create() {
-	console.log('phaser: execute create phase');
+	window.console.log('phaser: execute create phase');
 
 	// The player and its settings
 	player = game.add.sprite(100, 100, 'dude');
@@ -56,6 +63,10 @@ function create() {
 
 	//  Our two animations, walking left and right.
 	player.animations.add('walking', [0, 1, 2, 3], 10, true);
+
+	// Camera
+	//camera = new Camera(game, id, x, y, width, height);
+	//Phaser.Camera.x/y
 
 	// npcs group
 	npcs = game.add.group();
