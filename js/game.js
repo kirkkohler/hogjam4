@@ -63,9 +63,12 @@ function create() {
 	// Create n number of npcs into the group.
 	for (var i = 0; i < NUM_OF_NPCS; i++) {
 		//  Create an npc inside of the 'npcs' group with random location and sprite
-		var npc = npcs.create(Math.random() * (game.width - 64), Math.random() * (game.height - 64), npcSprites[(Math.floor(Math.random() * npcSprites.length))]);
+		var npc = npcs.create(Math.random() * (game.world.width - 64), Math.random() * (game.world.height - 64), npcSprites[(Math.floor(Math.random() * npcSprites.length))]);
 		npc.body.collideWorldBounds = true;
 	}
+
+	//  Our controls.
+	cursors = game.input.keyboard.createCursorKeys();
 }
 
 /*
@@ -73,6 +76,36 @@ function create() {
  */
 function update() {
 	// console.log('phaser: executing update phase');
+	//  Reset the players velocity (movement)
+	player.body.velocity.x = 0;
+	player.body.velocity.y = 0;
+
+	// control movement of player
+	if (cursors.left.isDown) {
+		//  Move to the left
+		player.body.velocity.x = -300;
+		player.animations.play('walking');
+	}
+	if (cursors.right.isDown) {
+		//  Move to the right
+		player.body.velocity.x = 300;
+		player.animations.play('walking');
+	}
+	if (cursors.up.isDown) {
+		//  Move to the up
+		player.body.velocity.y = -300;
+		player.animations.play('walking');
+	}
+	if (cursors.down.isDown) {
+		//  Move to the down
+		player.body.velocity.y = 300;
+		player.animations.play('walking');
+	}
+	if (!(cursors.left.isDown || cursors.right.isDown || cursors.up.isDown || cursors.down.isDown)) {
+		//  Stand still
+		player.animations.stop();
+		player.frame = 4;
+	}
 
 	// Checks to see if the player overlaps with any of the npcs, if player does call the turnNpc function
 	// tbd
