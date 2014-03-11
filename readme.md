@@ -9,16 +9,18 @@ An HTML5 zombie game.
 ### HouseOGames 4
 Originally created during the HouseOGames (4th Edition) hack meet-up at Reactor in Seattle, WA in March 2013.  
 
-The game was branched from Seth Vincent's <a href="https://github.com/sethvincent/hogjam4">hogjam4</a> repo.  You can read more about our hogjam4 team's game and the event on this <a href="http://tomorrowsgamer.com/news/hogjam-4/">hogjam4 blog post</a>.
+The game was branched from Seth Vincent's <a href="https://github.com/sethvincent/hogjam4">hogjam4</a> repo.  You can read more about our hogjam4 team's game and the event on this <a href="http://tomorrowsgamer.com/news/hogjam-4/">hogjam4 blog post</a> - The Baby game.
+
+Original team of HOGJam 4 - The Baby game
+ * <a href="https://github.com/sethvincent">Seth Vincent</a>
+ * <a href="https://github.com/suisea">Sui Sea</a>
 
 ## Theme
 ---
-The Baby
+Zombies, bam!
 
 ## The Team
 ---
- * <a href="https://github.com/sethvincent">Seth Vincent</a>
- * <a href="https://github.com/suisea">Sui Sea</a>
  * <a href="https://github.com/kirkkohler">Kirk Kohler</a>
 
 # Set up
