@@ -35,12 +35,12 @@ function preload() {
 
 	console.log('phaser: execute preload phase');
 
-	game.load.spritesheet('dude', '../images/zombie-baby.png', 64, 64);
-	game.load.spritesheet('attackingDude', '../images/attacking.png', 64, 64);
-	game.load.spritesheet('tanHuman', '../images/tan-baby.png', 64, 64);
-	game.load.spritesheet('brownHuman', '../images/brown-baby.png', 64, 64);
-	game.load.spritesheet('whiteHuman', '../images/white-baby.png', 64, 64);
-	game.load.spritesheet('turnedZombie', '../images/turned-baby.png', 64, 64);
+	game.load.spritesheet('dude', 'images/zombie-baby.png', 64, 64);
+	game.load.spritesheet('attackingDude', 'images/attacking.png', 64, 64);
+	game.load.spritesheet('tanHuman', 'images/tan-baby.png', 64, 64);
+	game.load.spritesheet('brownHuman', 'images/brown-baby.png', 64, 64);
+	game.load.spritesheet('whiteHuman', 'images/white-baby.png', 64, 64);
+	game.load.spritesheet('turnedZombie', 'images/turned-baby.png', 64, 64);
 }
 
 /*
