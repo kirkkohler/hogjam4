@@ -20,6 +20,7 @@ var game = new Phaser.Game(2500, 2500, Phaser.AUTO, '', {
 
 // player Properties
 var player;
+var fixed;
 var camera;
 var cursors;
 
@@ -65,7 +66,14 @@ function create() {
 	player.animations.add('walking', [0, 1, 2, 3], 10, true);
 
 	// Camera
-	//camera = new Camera(game, id, x, y, width, height);
+	fixed = game.add.sprite(300, 320, 'player');
+	fixed.fixedToCamera = true;
+	fixed.cameraOffset.x = 300;
+	fixed.cameraOffset.y = 300;
+
+	game.camera.follow(player);
+
+	// camera.follow(player, deadzone);
 	//Phaser.Camera.x/y
 
 	// npcs group
@@ -76,6 +84,8 @@ function create() {
 		//  Create an npc inside of the 'npcs' group with random location and sprite
 		var npc = npcs.create(Math.random() * (game.world.width - 64), Math.random() * (game.world.height - 64), npcSprites[(Math.floor(Math.random() * npcSprites.length))]);
 		npc.body.collideWorldBounds = true;
+		// example of adding property to npc
+		// npc.name = 'npc' + i;
 	}
 
 	//  Our controls.
@@ -119,16 +129,15 @@ function update() {
 	}
 
 	// Checks to see if the player overlaps with any of the npcs, if player does call the turnNpc function
-	// tbd
-	// game.physics.overlap(player, stars, turnNpcToZombie, null, this);
-
+	game.physics.overlap(player, npcs, turnNpcToZombie, null, this);
 }
 
 /*
-function turnNpcToZombie(player, star) {
-
-	// Removes the star from the screen
-	star.kill();
-
+ * Turn npc into zombie by loading a new texture
+ */
+function turnNpcToZombie(player, npcs) {
+	// Turn npc into zombie
+	// TODO: may want to include turned zombie into sprite sheet and just change frame reference 
+	// instead of loading new texture
+	npcs.loadTexture('turnedZombie', 0);
 }
-*/
