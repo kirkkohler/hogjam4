@@ -1,7 +1,15 @@
-# HouseOGames 4
+# Zombie Spread
 ===============
 
-HouseOGames (4th Edition) hack meet-up at Reactor in Seattle, WA.  
+An HTML5 zombie game.
+
+## News
+-----------
+
+### HouseOGames 4
+Originally created during the HouseOGames (4th Edition) hack meet-up at Reactor in Seattle, WA in March 2013.  
+
+The game was branched from Seth Vincent's <a href="https://github.com/sethvincent/hogjam4">hogjam4</a> repo.  You can read more about our hogjam4 team's game and the event on this <a href="http://tomorrowsgamer.com/news/hogjam-4/">hogjam4 blog post</a>.
 
 ## Theme
 ---
